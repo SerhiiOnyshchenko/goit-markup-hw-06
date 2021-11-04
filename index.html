@@ -63,9 +63,35 @@
                   для вашего бизнеса
                </h1>
                <button class="btn" type="button" data-modal-open>Заказать услугу</button>
-               <div class="backdrop is-hidden" data-modal>
+               <div class="backdrop is-hidden0" data-modal>
                   <div class="modal">
-                     <button class="modal-btn" type="button" data-modal-close></button>
+                     <button class="modal-btn-close" type="button" data-modal-close></button>
+                     <h2 class="modal-title">Оставьте свои данные, мы вам перезвоним</h2>
+                     <ul class="modal-items">
+                        <li class="modal-item">
+                           <p class="modal-text">Имя</p>
+                           <input type="name" />
+                        </li>
+                        <li class="modal-item">
+                           <p class="modal-text">Телефон</p>
+                           <input type="tel" />
+                        </li>
+                        <li class="modal-item">
+                           <p class="modal-text">Почта</p>
+                           <input type="mail" />
+                        </li>
+                        <li class="modal-item">
+                           <p class="modal-text">Комментарий</p>
+                           <input type="text" value="Введите текст" />
+                        </li>
+                        <li class="modal-item modal-item-checkbox">
+                           <input type="checkbox" />
+                           <p class="modal-text">
+                              Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a>
+                           </p>
+                        </li>
+                     </ul>
+                     <button class="btn modal-btn" type="button">Отправить</button>
                   </div>
                </div>
             </div>

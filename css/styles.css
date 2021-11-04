@@ -249,22 +249,29 @@ header {
 }
 
 .modal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	width: 528px;
 	height: 581px;
+	padding: 40px;
 
 	background: #ffffff;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
+
+	color: var(--main-color);
 
 	opacity: 1;
 	transform: translate(-50%, -50%) scale(1);
 	transition: transform var(--time-anime) var(--time-function), opacity var(--time-anime) var(--time-function);
 }
 
-.modal-btn {
+.modal-btn-close {
 	position: absolute;
 	display: block;
 	top: 8px;
@@ -277,6 +284,75 @@ header {
 	border-radius: 50%;
 	box-sizing: border-box;
 	cursor: pointer;
+}
+.modal-btn-close:hover,
+.modal-btn-close:focus {
+	background: var(--link-f-h-color) url(../images/icon//btn-close.svg) no-repeat center;
+}
+
+.modal input {
+	width: 100%;
+	height: 40px;
+	margin-bottom: 10px;
+
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+}
+.modal input:hover {
+	cursor: pointer;
+}
+.modal input {
+}
+.modal-title {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.15;
+	letter-spacing: 0.03em;
+}
+.modal-items {
+	width: 100%;
+}
+.modal-item [type="text"] {
+	height: 120px;
+}
+
+.modal-text {
+	margin-bottom: 4px;
+	font-size: 12px;
+	line-height: 1.15;
+	letter-spacing: 0.01em;
+	color: var(--another-color);
+}
+
+.modal-item-checkbox {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.modal-item-checkbox input {
+	width: 16px;
+	height: 15px;
+	margin-right: 9px;
+	margin-bottom: 0;
+	border: 2px solid #212121;
+}
+
+.modal-item-checkbox .modal-text {
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 1.72;
+	letter-spacing: 0.03em;
+}
+.modal-item-checkbox .modal-text a {
+	color: var(--link-f-h-color);
+	text-decoration: underline;
+}
+
+.modal-btn {
+	width: 200px;
+	height: 50px;
+	margin-top: auto;
 }
 
 /* Job section */
