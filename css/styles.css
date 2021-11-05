@@ -224,6 +224,7 @@ header {
 	background: #188ce8;
 }
 
+/* modal form  */
 .backdrop {
 	position: fixed;
 	top: 0;
@@ -249,15 +250,11 @@ header {
 }
 
 .modal {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: left;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 528px;
-	height: 581px;
+	min-width: 528px;
+	min-height: 581px;
 	padding: 40px;
 
 	background: #ffffff;
@@ -273,83 +270,153 @@ header {
 
 .modal-btn-close {
 	position: absolute;
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	top: 8px;
 	right: 8px;
 	width: 30px;
 	height: 30px;
 
-	background: #ffffff url(../images/icon//btn-close.svg) no-repeat center;
+	background-color: #ffffff;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 50%;
 	box-sizing: border-box;
 	cursor: pointer;
+	fill: currentColor;
+	transition: fill var(--time-anime) var(--time-function);
 }
+
 .modal-btn-close:hover,
 .modal-btn-close:focus {
-	background: var(--link-f-h-color) url(../images/icon//btn-close.svg) no-repeat center;
+	fill: var(--link-f-h-color);
 }
 
-.modal input {
-	width: 100%;
-	height: 40px;
-	margin-bottom: 10px;
+.form-modal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+}
 
-	border: 1px solid rgba(33, 33, 33, 0.2);
-	border-radius: 4px;
-}
-.modal input:hover {
-	cursor: pointer;
-}
-.modal input {
-}
-.modal-title {
+.form-title {
+	margin-bottom: 12px;
+
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 1.15;
 	letter-spacing: 0.03em;
 }
-.modal-items {
+.form-item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
 	width: 100%;
-}
-.modal-item [type="text"] {
-	height: 120px;
-}
-
-.modal-text {
-	margin-bottom: 4px;
 	font-size: 12px;
 	line-height: 1.15;
 	letter-spacing: 0.01em;
 	color: var(--another-color);
 }
+.form-modal input {
+	width: 100%;
+	height: 40px;
+	margin-top: 4px;
+	margin-bottom: 10px;
+	padding: 12px 16px 12px 42px;
 
-.modal-item-checkbox {
+	font-family: inherit;
+	font-size: 12px;
+
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+	transition: border var(--time-anime) var(--time-function);
+}
+
+.form-input-icon {
+	position: absolute;
+	top: 50%;
+	left: 16px;
+	transform: translateY(-25%);
+	transition: fill var(--time-anime) var(--time-function);
+}
+.form-modal input:hover,
+.form-modal input:focus {
+	border-color: var(--link-f-h-color);
+	outline: var(--link-f-h-color);
+	cursor: pointer;
+}
+.form-item:hover > .form-input-icon,
+.form-item:focus-within > .form-input-icon {
+	cursor: pointer;
+	fill: var(--link-f-h-color);
+}
+
+.form-item textarea {
+	height: 120px;
+	margin-top: 4px;
+	padding: 12px 16px;
+
+	font-family: inherit;
+	font-size: inherit;
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+	resize: none;
+	transition: border var(--time-anime) var(--time-function);
+}
+
+.form-modal textarea:hover,
+.form-modal textarea:focus {
+	border-color: var(--link-f-h-color);
+	outline: var(--link-f-h-color);
+	cursor: pointer;
+}
+
+.form-item-checkbox {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	margin-top: 10px;
 }
 
-.modal-item-checkbox input {
+.form-item-checkbox input {
 	width: 16px;
 	height: 15px;
-	margin-right: 9px;
-	margin-bottom: 0;
-	border: 2px solid #212121;
+	padding: 0;
+	margin: 0 9px 0 0;
+
+	border: none;
+	box-shadow: none;
+	background: url(../images/icon/modal-checkbox.svg) no-repeat center;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+	transition: background-image var(--time-anime) var(--time-function);
 }
 
-.modal-item-checkbox .modal-text {
+.form-item-checkbox {
 	margin-bottom: 0;
+
 	font-size: 14px;
-	line-height: 1.72;
+	line-height: 1.71;
 	letter-spacing: 0.03em;
 }
-.modal-item-checkbox .modal-text a {
+
+.form-item-checkbox input:checked {
+	background-image: url(../images/icon/modal-checkbox-check.svg);
+	transition: background-image var(--time-anime) var(--time-function);
+}
+
+.form-item-checkbox a {
 	color: var(--link-f-h-color);
 	text-decoration: underline;
 }
 
-.modal-btn {
+.form-sub {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 200px;
 	height: 50px;
 	margin-top: auto;
@@ -472,6 +539,7 @@ header {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
+	background-color: inherit;
 
 	transition: background-color var(--time-anime) var(--time-function);
 }
@@ -508,7 +576,7 @@ header {
 	color: #afb1b8;
 
 	transition: color var(--time-anime) var(--time-function), fill var(--time-anime) var(--time-function),
-		border-color var(--time-anime) var(--time-function);
+		border var(--time-anime) var(--time-function);
 }
 
 .client-item-icon {
@@ -543,7 +611,8 @@ header {
 
 .footer-contact-link {
 	color: inherit;
-	line-height: 1.7;
+	line-height: 1.71;
+	letter-spacing: 0.03em;
 
 	transition: color var(--time-anime) var(--time-function);
 }
@@ -574,6 +643,54 @@ header {
 .footer-icon > .link-icon {
 	fill: #fff;
 }
+.foooter-flex .footer-form {
+	display: flex;
+	margin-left: 93px;
+}
+.form-email {
+	display: flex;
+	flex-direction: column;
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+.form-email input {
+	width: 358px;
+	margin-top: 20px;
+	padding: 15px 16px;
+
+	font-size: 16px;
+	line-height: 1.25;
+	letter-spacing: 0.03em;
+
+	color: rgba(255, 255, 255, 0.6);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 4px;
+	background-color: inherit;
+}
+
+.form-email input:hover,
+.form-email input:focus {
+	outline: none;
+	cursor: pointer;
+	background-color: inherit;
+}
+.footer-sub {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 50px;
+	padding: 0;
+	margin-top: 36px;
+	margin-left: 12px;
+}
+
+.footer-sub-icon {
+	margin-left: 10px;
+}
 
 /* portfolio */
 /* filter */
@@ -601,7 +718,7 @@ header {
 
 .filter-btn:hover,
 .filter-btn:focus {
-	color: #fff;
+	color: #ffffff;
 	background: var(--link-f-h-color);
 	cursor: pointer;
 }
@@ -616,6 +733,8 @@ header {
 
 .feature-items > .item {
 	margin: 15px;
+	box-shadow: none;
+	transition: box-shadow var(--time-anime) var(--time-function);
 }
 .feature-items > .item:hover,
 .feature-items > .item:focus {
@@ -656,7 +775,6 @@ header {
 .feature-items > .item:hover .featyre-link-img > p,
 .feature-items > .item:focus .featyre-link-img > p {
 	bottom: 0;
-	transition: bottom var(--time-anime) var(--time-function);
 }
 
 .feature-title {
